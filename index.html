@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coldstore</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Coldstore</h1>
+<p class="sub">A single-operator command-line archival agent.</p>
+
+<p>Coldstore is a small self-hosted utility that takes periodic snapshots of a
+working machine and pushes them to a cloud storage bucket belonging to the
+same operator. Snapshots are deduplicated and encrypted on the machine that
+creates them, so the storage provider holds ciphertext only.</p>
+
+<h2>Design notes</h2>
+<ul>
+  <li><strong>Local-first.</strong> The agent is a cron-driven shell wrapper
+      around off-the-shelf tools. There is no service, no control plane and no
+      hosted component of any kind.</li>
+  <li><strong>Content-addressed.</strong> Repeat runs upload only changed
+      blocks, so a routine snapshot costs seconds and near-zero bandwidth.</li>
+  <li><strong>Least privilege.</strong> The storage integration requests the
+      narrowest API scope that will do the job, and is confined to a single
+      directory it creates and owns.</li>
+</ul>
+
+<h2>Availability</h2>
+<p>Coldstore is not a product. It is operated by, and authorised for, one
+person only. It is not distributed, not accepting users, and has no sign-up.</p>
+
+<p><a href="privacy.html">Privacy Policy</a> · <a href="terms-and-conditions/">Terms and Conditions</a></p>
+
+<footer>Last updated 10 September 2026.</footer>
+
+</body>
+</html>
